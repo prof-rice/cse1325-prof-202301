@@ -1,7 +1,7 @@
 public class Customer {
     public Customer(String name, String email) {
         int atIndex = email.indexOf('@', 0);
-        int dotIndex = (atIndex >= 0) ? email.indexOf('@', 0) : -1;
+        int dotIndex = (atIndex >= 0) ? email.indexOf('.', atIndex) : -1;
         if(dotIndex < 0) // will be true if atIndex < 0, so don't check that
             throw new IllegalArgumentException("Invalid email address: " + email);
         this.name = name;
