@@ -1,0 +1,4 @@
+#!/usr/bin
+javac gui/*.java
+javac store/*.java
+
