@@ -32,7 +32,7 @@ public class MainWin extends JFrame {
         
         JMenu     file       = new JMenu("File");
         JMenuItem quit       = new JMenuItem("Quit");        
-        quit.addActionListener((ActionEvent event) -> onQuitClick());
+        quit.addActionListener(event -> onQuitClick());
         // Make clicking the 'x' the same as File > Quit
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -50,7 +50,7 @@ public class MainWin extends JFrame {
         
         JMenu     pen         = new JMenu("Pen");
         JMenuItem color       = new JMenuItem("Color");        
-        color.addActionListener((ActionEvent event) -> onColorClick());
+        color.addActionListener(event -> onColorClick());
         pen.add(color);
         
         menubar.add(pen);

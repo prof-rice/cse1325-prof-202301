@@ -71,27 +71,27 @@ public class MainWin extends JFrame {
         
         // File > New
         JMenuItem newp       = new JMenuItem("New");        
-        newp.addActionListener((ActionEvent event) -> onNewClick());
+        newp.addActionListener(event -> onNewClick());
         file.add(newp);
         
         // File > Open
         JMenuItem open       = new JMenuItem("Open");        
-        open.addActionListener((ActionEvent event) -> onOpenClick());
+        open.addActionListener(event -> onOpenClick());
         file.add(open);
         
         // File > Save
         JMenuItem save       = new JMenuItem("Save");        
-        save.addActionListener((ActionEvent event) -> onSaveClick());
+        save.addActionListener(event -> onSaveClick());
         file.add(save);
         
         // File > Save As
         JMenuItem saveAs     = new JMenuItem("Save As");        
-        saveAs.addActionListener((ActionEvent event) -> onSaveAsClick());
+        saveAs.addActionListener(event -> onSaveAsClick());
         file.add(saveAs);
         
         // File > Quit
         JMenuItem quit       = new JMenuItem("Quit");        
-        quit.addActionListener((ActionEvent event) -> onQuitClick());
+        quit.addActionListener(event -> onQuitClick());
         // Make clicking the 'x' the same as File > Quit
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -106,33 +106,33 @@ public class MainWin extends JFrame {
         
         // Pen > Line
         JMenuItem line       = new JMenuItem("Line");        
-        line.addActionListener((ActionEvent event) -> onTextClick());
+        line.addActionListener(event -> onTextClick());
         
         // Pen > Image
         JMenuItem image       = new JMenuItem("Image");        
-        image.addActionListener((ActionEvent event) -> onImageClick());
+        image.addActionListener(event -> onImageClick());
         
         // Pen > Text
         JMenuItem text       = new JMenuItem("Text");        
-        text.addActionListener((ActionEvent event) -> onTextClick());
+        text.addActionListener(event -> onTextClick());
         
         // Pen > Font
         JMenuItem font       = new JMenuItem("Font");        
-        font.addActionListener((ActionEvent event) -> onFontClick());
+        font.addActionListener(event -> onFontClick());
         
         // Pen > Color
         JMenuItem color       = new JMenuItem("Color");        
-        color.addActionListener((ActionEvent event) -> onColorClick());
+        color.addActionListener(event -> onColorClick());
 
         // Pen > Width
         JMenuItem width       = new JMenuItem("Width");        
-        width.addActionListener((ActionEvent event) -> onWidthClick());
+        width.addActionListener(event -> onWidthClick());
         
         // Help menu
 
         JMenu     help       = new JMenu("Help");
         JMenuItem about      = new JMenuItem("About");        
-        about.addActionListener((ActionEvent event) -> onAboutClick());
+        about.addActionListener(event -> onAboutClick());
         
         file.add(quit);
         pen.add(line);
@@ -160,7 +160,7 @@ public class MainWin extends JFrame {
         newButton.setActionCommand("New");
         newButton.setToolTipText("Create a new painting");
         toolbar.add(newButton);
-        newButton.addActionListener((ActionEvent event) -> onNewClick());
+        newButton.addActionListener(event -> onNewClick());
         
         // Open button
         JButton openButton  = 
@@ -168,7 +168,7 @@ public class MainWin extends JFrame {
         openButton.setActionCommand("Open");
         openButton.setToolTipText("Open a painting from a file");
         toolbar.add(openButton);
-        openButton.addActionListener((ActionEvent event) -> onOpenClick());
+        openButton.addActionListener(event -> onOpenClick());
         
         // Save button
         JButton saveButton  = 
@@ -176,7 +176,7 @@ public class MainWin extends JFrame {
         saveButton.setActionCommand("Save");
         saveButton.setToolTipText("Save the painting to the current file");
         toolbar.add(saveButton);
-        saveButton.addActionListener((ActionEvent event) -> onSaveClick());
+        saveButton.addActionListener(event -> onSaveClick());
 
         // Save As button
         JButton saveAsButton  = 
@@ -184,7 +184,7 @@ public class MainWin extends JFrame {
         saveAsButton.setActionCommand("Save As");
         saveAsButton.setToolTipText("Save the painting to a different file");
         toolbar.add(saveAsButton);
-        saveAsButton.addActionListener((ActionEvent event) -> onSaveAsClick());
+        saveAsButton.addActionListener(event -> onSaveAsClick());
 
         // A "horizontal strut" is just a space of the specified pixel width
         toolbar.add(Box.createHorizontalStrut(25));
@@ -199,7 +199,7 @@ public class MainWin extends JFrame {
         lineButton.setToolTipText("Draw single lines (click-click)");
         penModeGroup.add(lineButton);
         toolbar.add(lineButton);
-        lineButton.addActionListener((ActionEvent event) -> onLineClick());
+        lineButton.addActionListener(event -> onLineClick());
         
         // Create the image toggle button (acts like a radio button)
         imageButton  = 
@@ -208,7 +208,7 @@ public class MainWin extends JFrame {
         imageButton.setToolTipText("Draw images (select filename)");
         penModeGroup.add(imageButton);
         toolbar.add(imageButton);
-        imageButton.addActionListener((ActionEvent event) -> onImageClick());
+        imageButton.addActionListener(event -> onImageClick());
         
         // Create the text toggle button (acts like a radio button)
         textButton  = 
@@ -217,7 +217,7 @@ public class MainWin extends JFrame {
         textButton.setToolTipText("Draw text (enter text and click on location)");
         penModeGroup.add(textButton);
         toolbar.add(textButton);
-        textButton.addActionListener((ActionEvent event) -> onTextClick());
+        textButton.addActionListener(event -> onTextClick());
         
         // A "horizontal strut" is just a space of the specified pixel width
        toolbar.add(Box.createHorizontalStrut(25));
@@ -228,7 +228,7 @@ public class MainWin extends JFrame {
         colorButton.setActionCommand("SelectPenColor");
         colorButton.setToolTipText("Select the pen color");
         toolbar.add(colorButton);
-        colorButton.addActionListener((ActionEvent event) -> onColorClick());
+        colorButton.addActionListener(event -> onColorClick());
 
         // Create the Width button
         JButton widthButton  = 
@@ -236,7 +236,7 @@ public class MainWin extends JFrame {
         widthButton.setActionCommand("SelectPenWidth");
         widthButton.setToolTipText("Select the pen width");
         toolbar.add(widthButton);
-        widthButton.addActionListener((ActionEvent event) -> onWidthClick());
+        widthButton.addActionListener(event -> onWidthClick());
 
         // Create the Font button
         JButton fontButton  = 
@@ -244,7 +244,7 @@ public class MainWin extends JFrame {
         fontButton.setActionCommand("SelectFont");
         fontButton.setToolTipText("Select the font");
         toolbar.add(fontButton);
-        fontButton.addActionListener((ActionEvent event) -> onFontClick());
+        fontButton.addActionListener(event -> onFontClick());
 
         getContentPane().add(toolbar, BorderLayout.PAGE_START);
       

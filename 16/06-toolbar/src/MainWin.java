@@ -47,7 +47,7 @@ public class MainWin extends JFrame {
         
         JMenu     file       = new JMenu("File");
         JMenuItem quit       = new JMenuItem("Quit");        
-        quit.addActionListener((ActionEvent event) -> onQuitClick());
+        quit.addActionListener(event -> onQuitClick());
         // Make clicking the 'x' the same as File > Quit
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -61,16 +61,16 @@ public class MainWin extends JFrame {
         
         JMenu     pen         = new JMenu("Pen");
         JMenuItem color       = new JMenuItem("Color");        
-        color.addActionListener((ActionEvent event) -> onColorClick());
+        color.addActionListener(event -> onColorClick());
         
         JMenuItem width       = new JMenuItem("Width");        
-        width.addActionListener((ActionEvent event) -> onWidthClick());
+        width.addActionListener(event -> onWidthClick());
         
         // Help menu
 
         JMenu     help       = new JMenu("Help");
         JMenuItem about      = new JMenuItem("About");        
-        about.addActionListener((ActionEvent event) -> onAboutClick());
+        about.addActionListener(event -> onAboutClick());
         
         file.add(quit);
         pen.add(color);
@@ -94,7 +94,7 @@ public class MainWin extends JFrame {
         colorButton.setActionCommand("Select the pen color");
         colorButton.setToolTipText("Select the pen color");
         toolbar.add(colorButton);
-        colorButton.addActionListener((ActionEvent event) -> onColorClick());
+        colorButton.addActionListener(event -> onColorClick());
 
         // Create the Width button
         JButton widthButton  = 
@@ -102,7 +102,7 @@ public class MainWin extends JFrame {
         widthButton.setActionCommand("Select the pen width");
         widthButton.setToolTipText("Select the pen width");
         toolbar.add(widthButton);
-        widthButton.addActionListener((ActionEvent event) -> onWidthClick());
+        widthButton.addActionListener(event -> onWidthClick());
 
         getContentPane().add(toolbar, BorderLayout.PAGE_START);
       
