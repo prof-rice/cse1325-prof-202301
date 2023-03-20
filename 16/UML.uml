@@ -1,0 +1,168 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+package shapes{
+
+abstract class Shape {
++ abstract save(bw : BufferedWriter)
++ abstract paintComponent(g : Graphics)
+}
+
+class Line {
+-x1 : int
+-y1 : int
+-x2 : int
+-y2 : int
+-color : Color
+-stroke : BasicStroke
++{static} id() : String
++Line(x1 : int, y1 : int, x2 : int,  y2 : int, color : Color, stroke : BasicStroke)
++Line(br : BufferedReader, fileVersion : String)
++save(bw : BufferedWriter)
++paintComponent(g : Graphics) <<override>>
+}
+
+class Polyline {
+-lines : Line[] <<ArrayList>>
++{static} id() : String
++Polyline()
++Polyline(line : Line)
++Polyline(br : BufferedReader, fileVersion : String)
++save(bw : BufferedWriter)
++addLine(line : Line)
++addPoint(x : int, y : int, color : Color, stroke : BasicStroke)
++paintComponent(g : Graphics) <<override>>
+}
+
+class Text {
+-text : String
+-color : Color
+-stroke : BasicStroke
+-x : int
+-y : int
++{static} id() : String
++Text(text : String, x : int, y : int, color : Color, font : Font)
++Text(br : BufferedReader, fileVersion : String)
++save(bw : BufferedWriter)
++paintComponent(g : Graphics) <<override>>
+}
+
+class Image {
+-imageFile : String
+-image : BufferedImage
+-obs : ImageObserver
+-x : int
+-y : int
++{static} id() : String
++Image(imageFile : String, x : int, y : obs : ImageObserver)
++Image(br : BufferedReader, fileVersion : String)
++save(bw : BufferedWriter)
++paintComponent(g : Graphics) <<override>>
+}
+
+}
+
+enum PenMode {
+LINE
+IMAGE
+TEXT
+} 
+
+class Canvas extends JPanel {
+-shapes : Shape[] <<ArrayList>>
+-rubberBand : Shape
+..
+-penMode : PenMode
+-color : Color
+-stroke : BasicStroke
+-text : String
+-font : Font
+-imagename : String
+-image : BufferedImage
+..
+-filename : File
+-isDirty : boolean
+-nextShape : int
+..
+-x1 : int
+-y1 : int
+-xOffset : int
+-yOffset : int
+-clickInProgress : boolean
+--
++{static} id() : String
++Canvas()
++Canvas(filename : File)
++Canvas(br : BufferedReader, fileVersion : String)
++save(bw : BufferedWriter)
++export(file : File, extension : String)
++paintComponent(g : Graphics) <<override>>
++getPreferredSize() : Dimension
++addShape(shape Shape)
+..
++isDirty() : boolean
++getFilename() : File
++setFilename(filename : File)
++setImagefile(imageFile File:)
++getPenMode() : PenMode
++setPenMode(penMode : PenMode)
++getColor() : Color
++setColor(color : Color)
++getLineWidth() : float
++setLineWidth(lineWidth : float)
++getText() : String
++setText(text : String)
++setFont(font : Font)
++getFontName() : String
++getFontStyle() : int
++getFontSize() : int
+..
++undo()
++redo()
+#clearRedoBuffer()
+..
+#onMouseClicked(event : MouseEvent)
+#onMouseMoved(event : MouseEvent)
+}
+
+class MainWin extends JFrame {
+-canvas : Canvas
+-lineButton : JToggleButton
+-textButton : JToggleButton
+-imageButton : JToggleButton
+--
++MainWin(title : String)
+#onNewClick()
+#onOpenClick()
+#onSaveClick()
+#onSaveAsClick()
+#onExportClick(extension : String)
+#onUndoClick()
+#onRedoClick()
+#onLineClick()
+#onImageClick()
+#onTextClick()
+#onFontClick()
+#onColorClick()
+#onWidthClick()
+..
+#okToExit()
+}
+
+class Paint {
++{static} main(args : String[])
+}
+
+Shape <|-- Polyline
+Shape <|-- Text
+Shape <|-- Image
+
+Polyline o-- Line
+Paint *-- MainWin
+MainWin *- Canvas
+MainWin -- Shape
+Canvas +- PenMode
+Canvas o-- Shape
+
+@enduml

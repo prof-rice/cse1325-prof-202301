@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<project name="Shapes Project" default="build">
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="doc.dir" value="doc"/>
+    
+    <presetdef name="javac">
+        <javac includeantruntime="false" />
+    </presetdef>
+
+    <target name="build" description="Compile source tree java files">
+        <mkdir dir="${build.dir}"/>
+        <copy todir="${build.dir}/resources">
+            <fileset dir="${src.dir}/resources"/>
+        </copy>
+        <javac destdir="${build.dir}" source="14" target="14" 
+               debug="true" deprecation="false" optimize="false" 
+               failonerror="true">
+            <src path="${src.dir}"/>
+        </javac>
+    </target>
+   
+    <target name="generate-javadoc">
+        <javadoc packagenames="shapes.*" sourcepath="${src.dir}"
+                 destdir="${doc.dir}" version="true" windowtitle="Shapes Library">
+            <doctitle><![CDATA[= Shapes Library =]]></doctitle>
+            <bottom>
+                <![CDATA[© 2021 Professor George F. Rice. Licensed under Gnu GPL 3.]]>
+            </bottom>
+            <group title="shapes packages" packages="shapes.*"/>
+        </javadoc>
+        <echo message="java doc has been generated!" />
+    </target>
+
+    <target name="clean" description="Clean output directories">
+        <delete dir="${build.dir}"/>
+    </target>
+   
+    <target name="info">
+        <echo>Hello, World!</echo>
+    </target>
+</project>
