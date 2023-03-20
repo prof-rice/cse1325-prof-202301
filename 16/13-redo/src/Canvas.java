@@ -263,6 +263,7 @@ public class Canvas extends JPanel {
     public void addShape(Shape shape) {
         clearRedoBuffer();         // Can't redo after new shape is added
         shapes.add(shape);         // Add the shape
+        isDirty = true;  // unsaved data now present
         repaint();                 // Update the display 
         nextShape = shapes.size(); // Mark all shapes as in use
     }

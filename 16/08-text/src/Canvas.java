@@ -115,6 +115,7 @@ public class Canvas extends JPanel {
 
                 if(penMode == PenMode.TEXT) {
                     shapes.add(new Text(text, x1, y1, color, null));
+                    isDirty = true;  // unsaved data now present
                     repaint(); // request call to paintComponent
                 } else {
                     clickInProgress = true;
