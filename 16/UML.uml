@@ -38,7 +38,7 @@ class Polyline {
 class Text {
 -text : String
 -color : Color
--stroke : BasicStroke
+-font : Font
 -x : int
 -y : int
 +{static} id() : String
