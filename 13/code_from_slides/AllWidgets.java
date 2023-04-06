@@ -112,7 +112,9 @@ public class AllWidgets extends JFrame {
         
         // /////////////////////////////////////////////////////////
         // Radio Buttons
-        ButtonGroup radioGroup = new ButtonGroup(); // Logical grouping - only one button in group may be down at a time
+
+
+        ButtonGroup radioGroup = new ButtonGroup(); // Logical grouping - only one button at a time
         JPanel radioPanel = new JPanel();           // Physical grouping - visually group the radio buttons
         radioPanel.setLayout(new BoxLayout(radioPanel, BoxLayout.PAGE_AXIS));
         radioPanel.setBorder(BorderFactory.createTitledBorder(
@@ -124,12 +126,15 @@ public class AllWidgets extends JFrame {
             event -> JOptionPane.showMessageDialog(this, "Radio 1"));
         radioGroup.add(radio1);  // Add to logical grouping
         radioPanel.add(radio1);  // Add to physical grouping
+        progress.setValue(30);
         
         radio2 = new JRadioButton("Radio Button 2");
         radio2.addActionListener(
-            event -> JOptionPane.showMessageDialog(this, "Radio 2"));
+            event -> {JOptionPane.showMessageDialog(this, "Radio 2");
+                              progress.setValue(70);});
         radioGroup.add(radio2);
         radioPanel.add(radio2);
+
 
         add(radioPanel, constraints);
 

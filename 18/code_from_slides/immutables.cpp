@@ -14,7 +14,7 @@ class Coordinate {
 
 void pass_by_value          (      Coordinate  c) {c .multiply(2);}
 void pass_by_reference      (      Coordinate& c) {c .multiply(2);}
-void pass_by_const_reference(const Coordinate& c) {}//c .multiply(2);}
+void pass_by_const_reference(const Coordinate& c)// {}//c .multiply(2);}
 void pass_by_pointer        (      Coordinate* c) {c->multiply(2);}
 
 int main() {

@@ -84,7 +84,7 @@ std::istream& operator>>(std::istream& is, Month& month) {
   {
       {std::regex{R"(([Jj]an(uary)?(,)?)|(0)?1(,)?)"},   Month::Jan},
       {std::regex{R"(([Ff]eb(uary)?(,)?)|(0)?2(,)?)"},   Month::Feb},
-      {std::regex{R"(([Mm]ar()ch?(,)?)|(0)?3(,)?)"},     Month::Mar},
+      {std::regex{R"(([Mm]ar(ch)?(,)?)|(0)?3(,)?)"},     Month::Mar},
       {std::regex{R"(([Aa]pr(il)?(,)?)|(0)?4(,)?)"},     Month::Apr},
       {std::regex{R"(([Mm]ay(,)?)|(0)?5(,)?)"},          Month::May},
       {std::regex{R"(([Jj]un(e)?(,)?)|(0)?6(,)?)"},      Month::Jun},

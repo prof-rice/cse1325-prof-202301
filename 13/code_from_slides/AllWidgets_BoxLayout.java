@@ -41,8 +41,10 @@ public class AllWidgets_BoxLayout extends JFrame {
 		/* Or more verbosely,
 		toggle.addItemListener(
 		    event -> {
-		        if(event.getStateChange() == ItemEvent.SELECTED)   JOptionPane.showMessageDialog(this, "SELECTED");		        
-		        else if(event.getStateChange() == ItemEvent.DESELECTED) JOptionPane.showMessageDialog(this, "DESELECTED");
+		        if(event.getStateChange() == ItemEvent.SELECTED)   
+		            JOptionPane.showMessageDialog(this, "SELECTED");		        
+		        else if(event.getStateChange() == ItemEvent.DESELECTED) 
+		            JOptionPane.showMessageDialog(this, "DESELECTED");
 		        else JOptionPane.showMessageDialog(this, event.paramString());  // "Impossible" case
 		    });
 		*/
@@ -56,10 +58,10 @@ public class AllWidgets_BoxLayout extends JFrame {
         add(check);
         
         // Radio Buttons
-        ButtonGroup radioGroup = new ButtonGroup();            // Logical grouping - only one button in group may be down at a time
-        JPanel radioPanel = new JPanel();                      // Physical grouping - visually group the radio buttons
+        ButtonGroup radioGroup = new ButtonGroup();            // Logical grouping
+        JPanel radioPanel = new JPanel();                      // Physical grouping
         radioPanel.setLayout(new BoxLayout(radioPanel, BoxLayout.PAGE_AXIS));
-        //JPanel radioPanel = new JPanel(new FlowLayout());    // BoxLayout is vertical; FlowLayout is horizontal
+        //JPanel radioPanel = new JPanel(new FlowLayout());    // BoxLayout vertical; FlowLayout horizontal
         radioPanel.setBorder(BorderFactory.createTitledBorder("This Border visually groups the JRadioButtons"));
         
         JRadioButton radio1 = new JRadioButton("Radio Button 1");
