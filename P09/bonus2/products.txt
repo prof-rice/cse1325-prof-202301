@@ -1,0 +1,51 @@
+SmartFood White Cheddar
+100
+Cheetos Crunchy
+100
+Cheetos Flaming Hot
+100
+Snyders Mini Pretzels
+100
+SmartVeggie Toasted Chips
+100
+Lays Classic
+100
+Ruffles Potato Chips
+100
+Doritos Nacho Cheese
+100
+Boulder Carson Jalapeno Cheddar
+100
+Boulder Carson Hickory Barbeque
+100
+Peanut M&Ms
+150
+Snickers Bar
+150
+Twix Bar
+150
+Reeses Peanut Butter Cups
+150
+Hershey's Chocolate Bar
+150
+Skittles
+110
+Airheads
+110
+Kara's Sweet & Salty Sunflower Seeds
+85
+Vera's Sweet & Spicy Sunflower Seeds
+85
+Nutrigrain Strawberry Bar
+85
+Nature Valley Oat Bar
+85
+Oreo Cookies
+85
+Kellogg's Strawberry Pop Tarts
+125
+Mrs. Freshley's Donut Sticks
+125
+Kellogg's Rice Krispies Treats
+125
+
