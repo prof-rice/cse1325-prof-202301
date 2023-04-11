@@ -5,6 +5,7 @@
 
 class Item {
   public:
+    Item();
     Item(std::string _name, int _price);
     int price();
     friend std::ostream& operator<<(std::ostream& os, const Item& item);

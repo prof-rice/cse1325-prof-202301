@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 
+Item::Item() : Item("", 0) {}
 Item::Item(std::string name, int price) : _name{name}, _price{price} {
     if(price < 0) throw std::runtime_error{"Negative price" + price};
 }

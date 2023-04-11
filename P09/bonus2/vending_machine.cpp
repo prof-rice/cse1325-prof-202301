@@ -3,16 +3,10 @@
 #include <iostream>
 
 Vending_machine::Vending_machine() { }
-Vending_machine::Vending_machine(std::istream& ist) {
-    std::string name;
-    int price;
-    while(ist) {
-        std::getline(ist, name);
-        ist >> price; ist.ignore();
-        if(ist) {
-            items.push_back(Item{name, price});
-        }
-    }
+Vending_machine::Vending_machine(std::istream& is) {
+    Item item{};
+    while(is >> item) 
+        if(is) items.push_back(item);
 }
 
 void Vending_machine::add(std::string name, int price) {

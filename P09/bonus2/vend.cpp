@@ -4,10 +4,12 @@
 #include <fstream>
 
 int main() {
-    std::ifstream ifs{"products.txt"};
-    Vending_machine vm{ifs};
-    //vm.add("Peanut butter crackers", 169);
-    //vm.add("Oreos", 189);
-    std::cout << vm << std::endl;
-    vm.buy(1);
+    std::ifstream ist{"products.txt"};
+    Vending_machine vm{ist};
+    int index = 0;
+    while(std::cin && index >= 0) {
+        std::cout << vm << "\n\nProduct? ";
+        std::cin >> index; std::cin.ignore();
+        if(std::cin && index >= 0) vm.buy(index);
+    }
 }
