@@ -1,0 +1,31 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+'See in an online UML editor at https://bit.ly/41xx4m3
+
+interface Iterable { }
+
+interface Collection extends Iterable { }
+
+interface Set extends Collection { }
+
+interface SortedSet extends Set { }
+
+interface List extends Collection { }
+
+interface Queue extends Collection { }
+
+interface Deque extends Queue { }
+
+interface BlockingQueue extends Queue { }
+
+interface BlockingDeque extends BlockingQueue, Deque { }
+
+interface TransferQueue extends BlockingQueue { }
+
+interface Map { }
+
+interface SortedMap extends Map { }
+
+@enduml
+
