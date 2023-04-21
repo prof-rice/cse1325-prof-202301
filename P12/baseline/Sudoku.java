@@ -3,9 +3,9 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.io.File;
 
-public class Suduko {
-    // Constructs a new Suduko from a text file
-    public Suduko(Scanner in, String puzzleName) {
+public class Sudoku {
+    // Constructs a new Sudoku from a text file
+    public Sudoku(Scanner in, String puzzleName) {
         solution = new int[9][9];
         board    = new int[9][9];
         
@@ -20,12 +20,12 @@ public class Suduko {
         }
     }
     
-    // Constructs a new Suduko from an existing Suduko,
+    // Constructs a new Sudoku from an existing Sudoku,
     //   replacing the first replace.length 0 values
     //   with respective values from replace
     // This is useful for splitting up the search
-    //   into 9, 81, etc. different sub-Sudukos
-    public Suduko(Suduko from, int[] replace) {
+    //   into 9, 81, etc. different sub-Sudokus
+    public Sudoku(Sudoku from, int[] replace) {
         solution = new int[9][9];
         board    = new int[9][9];
 
@@ -117,7 +117,7 @@ public class Suduko {
         if(o == this) return true;
         if(o == null) return false;
         if(o.getClass() != getClass()) return false;
-        Suduko s = (Suduko) o;
+        Sudoku s = (Sudoku) o;
         return Arrays.deepEquals(board, s.board);
     }
     @Override
@@ -133,12 +133,12 @@ public class Suduko {
     public static void main(String[] args) {
         try {
             if(args.length == 0) {
-                System.err.println("usage: java Suduko puzzleFilename [puzzleName]");
+                System.err.println("usage: java Sudoku puzzleFilename [puzzleName]");
                 System.exit(-1);
             }
             Scanner in = new Scanner(new File(args[0]));
             String name = (args.length > 1) ? args[1] : null;
-            Suduko s = new Suduko(in, name);
+            Sudoku s = new Sudoku(in, name);
             System.out.println(s + "\n\n");
             if(!s.solve()) System.out.println("#### Unable to solve!");
             System.out.println(s + "\n\n");            

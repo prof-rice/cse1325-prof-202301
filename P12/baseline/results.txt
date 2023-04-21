@@ -1,0 +1,75 @@
+====================
+HOMEWORK P12 RESULTS
+====================
+
+Spring 2023
+
+NOTE: We will not be grading for "correct" answers, since your results may vary, but rather answers that are consistent with your measured results.
+
+IMPORTANT: If at all possible, time your program on a machine with at least 4 cores. (CSE VM may be configured to use multiple cores in the VirtualBox properties panel.)
+
+FULL CREDIT
+===========
+
+QUESTION 1: Which puzzle did you use as ThreadsOfSudoku's parameter to achieve a 30+ second runtime (using "real"):
+
+QUESTION 2: Provide the full ``time`` output for your program, with 1 to 16 threads. It may prove interesting to screenshot your system monitor while these run. You may be able to run all of these with a single bash command if you like (replace 14_zeros with your puzzle from QUESTION 1): 
+
+for i in {1..16} ; do printf "\n Threads %d:\n" $i ; time (java ThreadsOfSudoku $i puzzle.txt 14_zeros > temp.txt) ; done
+
+Example Timing (first 2 of 16 runs only on Antares):
+
+ricegf@antares$ for i in {1..16} ; do printf "\n Threads %d:\n" $i ; time (java ThreadsOfSudoku $i puzzle.txt 14_zeros > temp.txt) ; done
+
+ Threads 1:
+
+real	2m0.684s
+user	2m0.919s
+sys	0m0.292s
+
+ Threads 2:
+
+real	1m4.553s
+user	2m7.003s
+sys	0m0.252s
+
+
+
+YOUR Timing:
+
+
+
+
+
+
+QUESTION 3: Does adding more threads continue to speed up the program? Do more threads ever slow down the program slightly?  Why or why not?
+
+
+
+
+
+QUESTION 4: Does adding more threads increase the "system load", or is it constant regardless of the number of threads?  Why?
+
+
+
+
+
+BONUS
+=====
+
+QUESTION 5: Time your thread pool version of ThreadsOfSudoku as you did for the full credit version. Post your timings here.
+
+YOUR Timing:
+
+
+
+
+
+
+QUESTION 6: Is a thread pool faster, slower, or roughly equivalent in performance? 
+
+
+
+QUESTION 7: Compare the full credit and bonus solution code. Which do you believe is more supportable over a long lifetime of evolving hardware and environments?
+
+

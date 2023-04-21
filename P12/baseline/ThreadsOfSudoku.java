@@ -2,18 +2,18 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.io.File;
 
-public class ThreadsOfSuduko {
+public class ThreadsOfSudoku {
     public static void main(String[] args) {
         
         try {
             if(args.length < 2) {
-                System.err.println("usage: java ThreadsOfSuduko threads puzzleFilename [puzzleName]");
+                System.err.println("usage: java ThreadsOfSudoku threads puzzleFilename [puzzleName]");
                 System.exit(-1);
             }
             
             Scanner in = new Scanner(new File(args[1]));
             String name = (args.length > 1) ? args[2] : null;
-            Suduko sud = new Suduko(in, name);
+            Sudoku sud = new Sudoku(in, name);
             System.out.println(sud + "\n\n");
             
             int numThreads = Integer.parseInt(args[0]);
@@ -22,16 +22,16 @@ public class ThreadsOfSuduko {
             int index = 0;
             for(int y=1; y<=9; ++y) {
                 for(int x=1; x<=9; ++x) {
-                    suds[index++] = new Suduko(sud, new int[]{x, y});
+                    suds[index++] = new Sudoku(sud, new int[]{x, y});
                 }
             }
             
             // WORK HERE
-            // solveSuds accepts a range of the 81 Suduko candidate solutions
+            // solveSuds accepts a range of the 81 Sudoku candidate solutions
             //   (in this case from 0 to suds.length-1 - that is, ALL of them!)
             //   with a "thread ID" hard-coded as 1.
             // Your job is to rewrite this to create numThreads threads, with
-            //   the set of Suduko candidate solutions split between them
+            //   the set of Sudoku candidate solutions split between them
             //   (for example, 0 to 40 for the first thread and 41-81 for the second).           
             solveSuds(0, suds.length-1, 1);
 
@@ -58,6 +58,6 @@ public class ThreadsOfSuduko {
     }
     // END WORK HERE
     
-    private static Suduko[] suds = new Suduko[81];
-    private static HashSet<Suduko> solutions = new HashSet<>();
+    private static Sudoku[] suds = new Sudoku[81];
+    private static HashSet<Sudoku> solutions = new HashSet<>();
 }
