@@ -22,7 +22,7 @@ public class Order {
     public void save(BufferedWriter bw) throws IOException {
         bw.write(Long.toString(orderNumber) + '\n');
         this.customer.save(bw);
-        bw.write(computers.size() + '\n');
+        bw.write("" + computers.size() + '\n');
         for(Computer computer : computers)
             computer.save(bw);
     }

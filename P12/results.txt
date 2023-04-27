@@ -1,0 +1,272 @@
+====================
+HOMEWORK P12 RESULTS
+====================
+
+Spring 2023
+
+
+FULL CREDIT
+===========
+
+QUESTION 1: Which puzzle did you use as ThreadsOfSudoku's parameter to achieve a 30+ second runtime (using "real"):  14_zeros
+
+QUESTION 2: Provide the full ``time`` output for your program, with 1 to 16 threads. It may prove interesting to screenshot your system monitor while these run. You may be able to run all of these with a single bash command if you like (replace 14_zeros with your puzzle from QUESTION 1): 
+
+for i in {1..16} ; do printf "\n Threads %d:\n" $i ; time (java ThreadsOfSudoku $i puzzle.txt 14_zeros > temp.txt) ; done
+
+Example Timing (first 2 of 16 runs only on Antares):
+
+ricegf@antares$ for i in {1..16} ; do printf "\n Threads %d:\n" $i ; time (java ThreadsOfSudoku $i puzzle.txt 14_zeros > temp.txt) ; done
+
+ Threads 1:
+
+real	2m0.684s
+user	2m0.919s
+sys	0m0.292s
+
+ Threads 2:
+
+real	1m4.553s
+user	2m7.003s
+sys	0m0.252s
+
+
+
+YOUR Timing:
+
+ricegf@antares$ for i in {1..16} ; do printf "\n Threads %d:\n" $i ; time (java ThreadsOfSudoku $i puzzle.txt 14_zeros > temp.txt) ; done
+
+ Threads 1:
+
+real	2m0.684s
+user	2m0.919s
+sys	0m0.292s
+
+ Threads 2:
+
+real	1m4.553s
+user	2m7.003s
+sys	0m0.252s
+
+ Threads 3:
+
+real	0m46.637s
+user	2m7.820s
+sys	0m0.284s
+
+ Threads 4:
+
+real	0m37.897s
+user	2m9.639s
+sys	0m0.272s
+
+ Threads 5:
+
+real	0m32.176s
+user	2m7.143s
+sys	0m0.312s
+
+ Threads 6:
+
+real	0m29.204s
+user	2m14.121s
+sys	0m0.292s
+
+ Threads 7:
+
+real	0m25.972s
+user	2m16.695s
+sys	0m0.344s
+
+ Threads 8:
+
+real	0m25.840s
+user	2m23.062s
+sys	0m0.292s
+
+ Threads 9:
+
+real	0m23.473s
+user	2m37.037s
+sys	0m0.268s
+
+ Threads 10:
+
+real	0m23.003s
+user	2m49.602s
+sys	0m0.332s
+
+ Threads 11:
+
+real	0m22.109s
+user	2m57.902s
+sys	0m0.348s
+
+ Threads 12:
+
+real	0m22.498s
+user	3m17.382s
+sys	0m0.440s
+
+ Threads 13:
+
+real	0m23.058s
+user	3m16.039s
+sys	0m0.353s
+
+ Threads 14:
+
+real	0m22.865s
+user	3m13.027s
+sys	0m0.412s
+
+ Threads 15:
+
+real	0m23.447s
+user	3m19.198s
+sys	0m0.396s
+
+ Threads 16:
+
+real	0m23.687s
+user	3m21.058s
+sys	0m0.416s
+ricegf@antares$ 
+
+
+
+
+
+
+QUESTION 3: Does adding more threads continue to speed up the program? Do more threads ever slow down the program slightly?  Why or why not? 
+
+Performance leveled of at around ½ to ⅔ the number of cores. Past the number of cores, I observed a very small increase as threads were added.
+
+
+
+
+QUESTION 4: Does adding more threads increase the "system load", or is it constant regardless of the number of threads?  Why?
+
+The system load increased slightly to handle the additional threads, but the increase was inconsequential to the overall real time improvement.
+
+
+
+BONUS
+=====
+
+QUESTION 5: Time your thread pool version of ThreadsOfSudoku as you did for the full credit version. Post your timings here.
+
+YOUR Timing:
+
+ricegf@antares$ for i in {1..16} ; do printf "\n Threads %d:\n" $i ; time (java ThreadsOfSudoku $i puzzle.txt 14_zeros > temp.txt) ; done
+
+ Threads 1:
+
+real	2m0.032s
+user	2m0.231s
+sys	0m0.272s
+
+ Threads 2:
+
+real	1m3.065s
+user	2m4.425s
+sys	0m0.236s
+
+ Threads 3:
+
+real	0m44.142s
+user	2m8.219s
+sys	0m0.220s
+
+ Threads 4:
+
+real	0m32.605s
+user	2m3.023s
+sys	0m0.240s
+
+ Threads 5:
+
+real	0m25.321s
+user	2m4.738s
+sys	0m0.264s
+
+ Threads 6:
+
+real	0m22.110s
+user	2m4.987s
+sys	0m0.352s
+
+ Threads 7:
+
+real	0m23.141s
+user	2m29.583s
+sys	0m0.320s
+
+ Threads 8:
+
+real	0m21.884s
+user	2m43.000s
+sys	0m0.384s
+
+ Threads 9:
+
+real	0m22.912s
+user	3m9.890s
+sys	0m0.352s
+
+ Threads 10:
+
+real	0m22.089s
+user	3m21.910s
+sys	0m0.400s
+
+ Threads 11:
+
+real	0m20.953s
+user	3m32.219s
+sys	0m0.354s
+
+ Threads 12:
+
+real	0m20.698s
+user	3m39.216s
+sys	0m0.356s
+
+ Threads 13:
+
+real	0m21.453s
+user	3m49.173s
+sys	0m0.369s
+
+ Threads 14:
+
+real	0m21.788s
+user	3m49.073s
+sys	0m0.488s
+
+ Threads 15:
+
+real	0m24.194s
+user	4m19.408s
+sys	0m0.456s
+
+ Threads 16:
+
+real	0m23.792s
+user	4m18.163s
+sys	0m0.481s
+ricegf@antares$ 
+
+
+
+YOUR Timing:
+
+QUESTION 6: Is a thread pool faster, slower, or roughly equivalent in performance? 
+
+The thread pool was about 25% faster at around half the number of cores. This advantage decreased to insignificant as we approach 1 core or the number of cores in the machine.
+
+
+QUESTION 7: Compare the full credit and bonus solution code. Which do you believe is more supportable over a long lifetime of evolving hardware and environments?
+
+The thread pool had simpler code with fewer bugs. I believe the thread pool approach woudl be more supportable.
+

@@ -26,17 +26,22 @@ public class ThreadsOfSudoku {
                 }
             }
             
-            // WORK HERE
-            // solveSuds accepts a range of the 81 Sudoku candidate solutions
-            //   (in this case from 0 to suds.length-1 - that is, ALL of them!)
-            //   with a "thread ID" hard-coded as 1.
-            // Your job is to rewrite this to create numThreads threads, with
-            //   the set of Sudoku candidate solutions split between them
-            //   (for example, 0 to 40 for the first thread and 41-81 for the second).           
-            solveSuds(0, suds.length-1, 1);
-
-            // END WORK HERE
-                        
+            // if(!sud.solve()) System.out.println("#### Unable to solve!");
+            // System.out.println(sud);            
+            if(numThreads < 2) {
+                solveSuds(0);
+            } else {
+                Thread[] threads = new Thread[numThreads];
+                for(int i=0; i<numThreads; ++i) {
+                    final int threadID = i;
+                    threads[i] = new Thread(() -> solveSuds(threadID));
+                    threads[i].start();
+                }
+                for(int i=0; i<numThreads; ++i) {
+                    threads[i].join();
+                }
+            }
+            
             // Show the solution(s), if any
             System.out.println("Found " + solutions.size() + " solutions");
             for(var s : solutions) System.out.println(s);
@@ -47,18 +52,21 @@ public class ThreadsOfSudoku {
         }
     }
     
-    // WORK HERE
-    // Be sure to protect the solutions ArrayList from Thread Interference!
-    // You ARE permitted to add additional field(s) and/or method(s) if needed.
-    private static void solveSuds(int first, int last, int id) {
-        System.out.println("Thread " + id + " will solve " + first + " to " + last);
-        for(int i=first; i<=last; ++i) {
-            System.out.println("Thread " + id + " solving " + i);// + "\n\n" + suds[i]);
-            if(suds[i].solve()) solutions.add(suds[i]);
+    static int nextIndex = 0;
+    private static synchronized int getSudIndex() {
+        if(nextIndex < suds.length) return nextIndex++;
+        else return -1;
+    }
+    
+    private static void solveSuds(int id) {
+        int index = 0;
+        while((index = getSudIndex()) >= 0) {
+            System.out.println("Thread " + id + " solving " + index);// + "\n\n" + suds[i]);
+            if(suds[index].solve()) synchronized(lock) {solutions.add(suds[index]);}
         }
     }
-    // END WORK HERE
     
+    private static Object lock = new Object();
     private static Sudoku[] suds = new Sudoku[81];
     private static HashSet<Sudoku> solutions = new HashSet<>();
 }

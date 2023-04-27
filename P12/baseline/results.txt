@@ -4,9 +4,6 @@ HOMEWORK P12 RESULTS
 
 Spring 2023
 
-NOTE: We will not be grading for "correct" answers, since your results may vary, but rather answers that are consistent with your measured results.
-
-IMPORTANT: If at all possible, time your program on a machine with at least 4 cores. (CSE VM may be configured to use multiple cores in the VirtualBox properties panel.)
 
 FULL CREDIT
 ===========
