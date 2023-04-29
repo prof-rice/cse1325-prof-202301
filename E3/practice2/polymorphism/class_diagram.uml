@@ -1,0 +1,31 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+abstract class Animal {
+  - name : String
+  + Animal(name : String)  
+  + {abstract} speak() 
+  + toString() : String
+}
+
+class Cat extends Animal {
+  + Cat(name : String)
+  + speak()
+}
+
+class Dog extends Animal {
+  + Dog(name : String)
+  + speak()
+}
+
+class Storm {
+  - animals : ArrayList
+  + Storm()
+  + raining()
+  + {static} main(args : String[])
+}
+
+Storm -> Animal
+@enduml
+

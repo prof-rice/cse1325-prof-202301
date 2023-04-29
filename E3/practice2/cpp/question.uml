@@ -1,0 +1,24 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+abstract class Question {
+  # _points : int
+  # _question : std::string
+  + Question(points : int, question : std::string)  
+  + {abstract} formatted_question() : std::string
+  + operator+(q : Question&) : int
+  + operator+(points : int, q : Question&) <<friend>>
+}
+
+class MultipleChoice  {
+  # _correct : std::string
+  # _incorrect : std::vector<std::string>
+  + MultipleChoice(points : int, question : std::string, answer : std::string)  
+  + add_incorrect(answer : std::string)
+  + formatted_question() : std::string <<override>>
+}
+
+Question <|- MultipleChoice
+@enduml
+
