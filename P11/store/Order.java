@@ -1,12 +1,13 @@
 package store;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-public class Order {
+public class Order implements Saveable {
     public Order(Customer customer) {
         this.customer = customer;
         this.orderNumber = nextOrderNumber++;
@@ -19,6 +20,7 @@ public class Order {
         while(numOptions-- > 0)
             computers.add(new Computer(br));
     }
+    @Override
     public void save(BufferedWriter bw) throws IOException {
         bw.write(Long.toString(orderNumber) + '\n');
         this.customer.save(bw);
@@ -30,9 +32,15 @@ public class Order {
     public void addComputer(Computer computer) {
         computers.add(computer);
     }
+    public long cost() {
+        long cost = 0;
+        for(Computer c : computers) cost += c.cost();
+        return cost;
+    }
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Order " + orderNumber + " for " + customer);
+        StringBuilder sb = new StringBuilder("Order " + orderNumber 
+            + " for " + customer + " at $" + cost()/100.0);
         for(Computer c : computers) sb.append("\n\n" + c);
         return sb.toString();
     }
@@ -57,6 +65,10 @@ public class Order {
         } catch (Exception e) {
             return false;
         }
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(customer, computers);
     }
 
     private Customer customer;
